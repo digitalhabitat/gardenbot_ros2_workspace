@@ -92,4 +92,5 @@ VSCode will build the dockerfile inside of `.devcontainer` for you.  If you open
    1. `setup.sh` The setup commands for your code.  Default to import workspace and install dependencies.
    2. `build.sh` The build commands for your code.  Default to `--merge-install` and `--symlink-install`
    3. `test.sh` The test commands for your code.
-4. Develop!
+4. . install/setup.bash
+5. Develop!
