@@ -85,6 +85,8 @@ VSCode will build the dockerfile inside of `.devcontainer` for you.  If you open
 
 ### Update the template with your code
 
+> `Ctrl+Shift+P` Type "Task: Run Task", hit enter to reveal all tasks define by `.vscode/tasks.json` 
+
 1. Specify the repositories you want to include in your workspace in `src/ros2.repos` or delete `src/ros2.repos` and develop directly within the workspace.
 2. If you are using a `ros2.repos` file, import the contents `Terminal->Run Task..->import from workspace file`
 2. Install dependencies `Terminal->Run Task..->install dependencies`
@@ -92,5 +94,7 @@ VSCode will build the dockerfile inside of `.devcontainer` for you.  If you open
    1. `setup.sh` The setup commands for your code.  Default to import workspace and install dependencies.
    2. `build.sh` The build commands for your code.  Default to `--merge-install` and `--symlink-install`
    3. `test.sh` The test commands for your code.
-4. . install/setup.bash
-5. Develop!
+   4. `. install/setup.bash` The command to source environment for the demo example packages manually
+   5. `ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function` The command to run the subscriber node
+   6. `ros2 run examples_rclcpp_minimal_publisher publisher_member_function` The command to run the publisher node
+4. Develop!
