@@ -1,19 +1,27 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
 	"dockerFile": "Dockerfile",
+	"name": "mydevcontainername",
 	"build": {
 		"args": {
 			"WORKSPACE": "${containerWorkspaceFolder}"
 		}
 	},
-	"remoteUser": "ros",
-	"runArgs": [
-		"--network=host",
-		"--cap-add=SYS_PTRACE",
-		"--security-opt=seccomp:unconfined",
-		"--security-opt=apparmor:unconfined",
-		"--volume=/tmp/.X11-unix:/tmp/.X11-unix"
+	"remoteUser": "ros", // The requires your Dockerfile to create non-root user. See Dockerfile for details
+	 "runArgs": [
+                "--privileged",	// allow access to all devices 
+	 	"--network=host"
+	// 	"--cap-add=SYS_PTRACE",
+	// 	"--security-opt=seccomp:unconfined",
+	// 	"--security-opt=apparmor:unconfined",
+	//	"--volume=/tmp/.X11-unix:/tmp/.X11-unix"
+	 ],
+	"mounts": [
+		"source=/etc/udev/rules.d,target=/etc/udev/rules.d,type=bind",
+		"source=/run/udev/,target=/run/udev/,type=bind",
+		"source=/dev/,target=/dev/,type=bind"
 	],
+	// "initializeCommand":[]
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}",
 		"LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl

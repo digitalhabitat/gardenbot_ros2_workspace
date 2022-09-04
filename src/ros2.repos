@@ -4,7 +4,26 @@
 # Example:
 ############
 repositories:
+  blink1-tool:
+    type: git
+    url: https://github.com/todbot/blink1-tool.git
+    version: main
+  camera-ros:
+    type: git
+    url: https://github.com/christianrauch/camera_ros.git
+    version: main
   examples:
     type: git
     url: https://github.com/ros2/examples.git
     version: foxy
+  libcamera-apps:
+    type: git
+    url: https://github.com/raspberrypi/libcamera-apps.git
+  libcamera:
+    type: git
+    url: git://linuxtv.org/libcamera.git
+  roboclaw_python_library:
+    type: git
+    url: https://github.com/basicmicro/roboclaw_python_library
+
+
